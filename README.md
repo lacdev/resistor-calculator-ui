@@ -12,7 +12,7 @@ $ npm install
 $ npm run dev
 ```
 
-### Don't forget to run the backend first. It should listen to PORT 8000 by default.
+### Don't forget to run the backend first.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
