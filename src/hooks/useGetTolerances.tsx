@@ -2,11 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { Tolerance } from '../types'
 
-import {
-  LOCAL_BACKEND_URL,
-  RESISTOR_VALUES_API_PATH,
-  TOLERANCE_VALUES_API_PATH,
-} from '../constants/api'
+import { fetchTolerances } from '../api/tolerances'
 
 export const useGetTolerances = () => {
   const [tolerances, setTolerances] = useState<Tolerance[]>([])
@@ -14,18 +10,9 @@ export const useGetTolerances = () => {
   const [isError, setError] = useState<boolean>(false)
 
   useEffect(() => {
-    const fetchTolerances = async () => {
+    const getTolerancesData = async () => {
       try {
-        const response = await fetch(
-          `${LOCAL_BACKEND_URL}/${RESISTOR_VALUES_API_PATH}/${TOLERANCE_VALUES_API_PATH}`
-        )
-
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status} ${response.statusText}`)
-        }
-
-        const data = await response.json()
-
+        const data = await fetchTolerances()
         setTolerances(data)
       } catch (err) {
         setError(true)
@@ -34,7 +21,7 @@ export const useGetTolerances = () => {
       }
     }
 
-    fetchTolerances()
+    getTolerancesData()
   }, [])
 
   return { tolerances, isLoading, isError }

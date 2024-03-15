@@ -2,11 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { Multiplier } from '../types'
 
-import {
-  LOCAL_BACKEND_URL,
-  MULTIPLIER_VALUES_API_PATH,
-  RESISTOR_VALUES_API_PATH,
-} from '../constants/api'
+import { fetchMultipliers } from '../api/multipliers'
 
 export const useGetMultipliers = () => {
   const [multipliers, setMultipliers] = useState<Multiplier[]>([])
@@ -14,18 +10,9 @@ export const useGetMultipliers = () => {
   const [isError, setError] = useState<boolean>(false)
 
   useEffect(() => {
-    const fetchMultipliers = async () => {
+    const getMultipliersData = async () => {
       try {
-        const response = await fetch(
-          `${LOCAL_BACKEND_URL}/${RESISTOR_VALUES_API_PATH}/${MULTIPLIER_VALUES_API_PATH}`
-        )
-
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status} ${response.statusText}`)
-        }
-
-        const data = await response.json()
-
+        const data = await fetchMultipliers()
         setMultipliers(data)
       } catch (err) {
         setError(true)
@@ -34,7 +21,7 @@ export const useGetMultipliers = () => {
       }
     }
 
-    fetchMultipliers()
+    getMultipliersData()
   }, [])
 
   return { multipliers, isLoading, isError }
