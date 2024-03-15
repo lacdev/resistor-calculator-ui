@@ -21,7 +21,7 @@ $ npm run start:dev
 ## After the backend is running, run this React app:
 
 ```bash
-$ npm run dev
+$ npm run start
 ```
 
 ## To run tests on both projects use:
