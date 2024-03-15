@@ -1,14 +1,29 @@
+export const DROPDOWN_COLORS_MAP: Record<string, string> = {
+  black: '#000000',
+  brown: '#8B4513',
+  red: '#FF0000',
+  orange: '#FFA500',
+  yellow: '#F3E01D',
+  green: '#008000',
+  blue: '#0000FF',
+  violet: '#EE82EE',
+  grey: '#808080',
+  white: '#E7E7E7',
+  gold: '#FFD700',
+  silver: '#C0C0C0',
+}
+
 export const FIRST_BANDS_OPTIONS = [
   { label: 'black', value: '0', color: '#000000' },
   { label: 'brown', value: '1', color: '#8B4513' },
-  { label: 'red', value: '2', color: '#FF00000' },
+  { label: 'red', value: '2', color: '#FF0000' },
   { label: 'orange', value: '3', color: '#FFA500' },
-  { label: 'yellow', value: '4', color: '#FFFF00' },
+  { label: 'yellow', value: '4', color: '#F3E01D' },
   { label: 'green', value: '5', color: '#008000' },
   { label: 'blue', value: '6', color: '#0000FF' },
   { label: 'violet', value: '7', color: '#EE82EE' },
   { label: 'grey', value: '8', color: '#808080' },
-  { label: 'white', value: '9', color: '#FFFFFF' },
+  { label: 'white', value: '9', color: '#E7E7E7' },
 ]
 
 export const COLOR_CODE_MAP = new Map<string, number>([
