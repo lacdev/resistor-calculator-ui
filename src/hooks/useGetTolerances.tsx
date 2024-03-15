@@ -11,7 +11,7 @@ import {
 export const useGetTolerances = () => {
   const [tolerances, setTolerances] = useState<Tolerance[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
-  const [error, setError] = useState<boolean>(false)
+  const [isError, setError] = useState<boolean>(false)
 
   useEffect(() => {
     const fetchTolerances = async () => {
@@ -37,5 +37,5 @@ export const useGetTolerances = () => {
     fetchTolerances()
   }, [])
 
-  return { tolerances, isLoading, error }
+  return { tolerances, isLoading, isError }
 }

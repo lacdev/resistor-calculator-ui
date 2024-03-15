@@ -9,7 +9,7 @@ import {
 export const useGetMultipliers = () => {
   const [multipliers, setMultipliers] = useState<Multiplier[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
-  const [error, setError] = useState<boolean>(false)
+  const [isError, setError] = useState<boolean>(false)
 
   useEffect(() => {
     const fetchMultipliers = async () => {
@@ -35,5 +35,5 @@ export const useGetMultipliers = () => {
     fetchMultipliers()
   }, [])
 
-  return { multipliers, isLoading, error }
+  return { multipliers, isLoading, isError }
 }
