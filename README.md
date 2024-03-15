@@ -1,22 +1,32 @@
-# React + TypeScript + Vite
+# React Resistor Calculator
 
-## Installation
+### Clone the backend for this React app from here:
+
+```
+https://github.com/lacdev/resistor-calculator-api
+
+```
+
+## Install the required dependencies, run this on the root of both projects.
 
 ```bash
 $ npm install
 ```
 
-## To run the app locally
+## To run the backend locally. It will listen on PORT 8000
+
+```bash
+$ npm run start:dev
+```
+
+## After the backend is running, run this React app:
 
 ```bash
 $ npm run dev
 ```
 
-### Don't forget to run the backend first.
+## To run tests on both projects use:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+$ npm run test
+```
