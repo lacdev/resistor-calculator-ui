@@ -1,8 +1,6 @@
-import { MultiplierOrToleranceOption } from '../../types'
-
 type ResultContainerProps = {
   resistance: number | null
-  tolerance: MultiplierOrToleranceOption | null
+  tolerance?: string | null
 }
 
 export const ResultContainer = ({
@@ -14,7 +12,7 @@ export const ResultContainer = ({
       {resistance && tolerance ? (
         <>
           <span className="result-label">Resistor Value: </span>
-          <span className="result">{`${resistance} Ω ${tolerance.value}`}</span>
+          <span className="result">{`${resistance} Ω ${tolerance}`}</span>
         </>
       ) : null}
     </div>
