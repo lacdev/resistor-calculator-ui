@@ -4,7 +4,6 @@
 
 ```
 https://github.com/lacdev/resistor-calculator-api
-
 ```
 
 ## Install the required dependencies, run this on the root of both projects.
