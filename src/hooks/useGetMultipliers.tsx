@@ -7,7 +7,7 @@ import {
 } from '../constants/api'
 
 export const useGetMultipliers = () => {
-  const [multipliers, setMultipliers] = useState<Multiplier[] | null>(null)
+  const [multipliers, setMultipliers] = useState<Multiplier[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [error, setError] = useState<boolean>(false)
 
