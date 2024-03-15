@@ -8,12 +8,10 @@ export type Tolerance = {
   tolerance: string
 }
 
-export interface ColourOption {
-  readonly value: string
-  readonly label: string
-  readonly color: string
-  readonly isFixed?: boolean
-  readonly isDisabled?: boolean
+export type ColourOption = {
+  value: string
+  label: string
+  color: string
 }
 
 export type BandOption = {
