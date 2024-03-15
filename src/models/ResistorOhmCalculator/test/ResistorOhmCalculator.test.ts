@@ -1,6 +1,6 @@
 import { describe, test, expect } from 'vitest'
 
-import { COLOR_CODE_MAP, MULTIPLIER_MAP } from '../../constants/calculator'
+import { COLOR_CODE_MAP, MULTIPLIER_MAP } from '../../../constants/calculator'
 import { ResistorOhmCalculator } from '../ResistorOhmCalculator'
 
 describe('ResistorOhmCalculator', () => {
