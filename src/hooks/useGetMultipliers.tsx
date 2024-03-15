@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
+
 import { Multiplier } from '../types'
+
 import {
   LOCAL_BACKEND_URL,
   MULTIPLIER_VALUES_API_PATH,

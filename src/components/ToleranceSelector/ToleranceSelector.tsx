@@ -1,14 +1,19 @@
-import { Dispatch, SetStateAction, useMemo } from 'react'
+import { useMemo } from 'react'
+import { ActionMeta, MultiValue, SingleValue } from 'react-select'
 
 import { mapToleranceOptions } from '../../helpers'
-import { MultiplierOrToleranceOption } from '../../types'
-
 import { useGetTolerances } from '../../hooks/useGetTolerances'
+import { ColourOption } from '../../types'
 
 import BandSelector from '../BandSelector'
 
 type ToleranceSelectorProps = {
-  onChange: Dispatch<SetStateAction<MultiplierOrToleranceOption | null>>
+  onChange:
+    | ((
+        newValue: SingleValue<ColourOption> | MultiValue<ColourOption>,
+        actionMeta: ActionMeta<ColourOption>
+      ) => void)
+    | undefined
 }
 
 export const ToleranceSelector = ({ onChange }: ToleranceSelectorProps) => {
@@ -19,7 +24,7 @@ export const ToleranceSelector = ({ onChange }: ToleranceSelectorProps) => {
   } = useGetTolerances()
 
   const toleranceOptions = useMemo(
-    () => (tolerances ? mapToleranceOptions(tolerances) : []),
+    () => (tolerances.length > 0 ? mapToleranceOptions(tolerances) : []),
     [tolerances]
   )
 
