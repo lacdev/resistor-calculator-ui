@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { SingleValue } from 'react-select'
+import { MultiValue, SingleValue } from 'react-select'
 
 import {
   COLOR_CODE_MAP,
@@ -8,7 +8,7 @@ import {
 } from '../constants/calculator'
 
 import { ResistorOhmCalculator } from '../models/ResistorOhmCalculator'
-import { ColourOption, MultiplierOrToleranceOption } from '../types'
+import { ColourOption } from '../types'
 
 import BandSelector from '../components/BandSelector'
 import CalculateButton from '../components/CalculateButton'
@@ -28,10 +28,10 @@ export default function Calculator() {
     useState<SingleValue<ColourOption> | null>(null)
 
   const [selectedMultiplier, setSelectedMultiplier] =
-    useState<MultiplierOrToleranceOption | null>(null)
+    useState<SingleValue<ColourOption> | null>(null)
 
   const [selectedTolerance, setSelectedTolerance] =
-    useState<MultiplierOrToleranceOption | null>(null)
+    useState<SingleValue<ColourOption> | null>(null)
 
   const handleCalculateResistanceButtonClick = () => {
     if (
@@ -57,6 +57,30 @@ export default function Calculator() {
     }
   }
 
+  const handleBandASelectorChange = (
+    newValue: SingleValue<ColourOption> | MultiValue<ColourOption>
+  ) => {
+    setSelectedBandA(newValue as SingleValue<ColourOption>)
+  }
+
+  const handleBandBSelectorChange = (
+    newValue: SingleValue<ColourOption> | MultiValue<ColourOption>
+  ) => {
+    setSelectedBandB(newValue as SingleValue<ColourOption>)
+  }
+
+  const handleMultiplierSelectorChange = (
+    newValue: SingleValue<ColourOption> | MultiValue<ColourOption>
+  ) => {
+    setSelectedMultiplier(newValue as SingleValue<ColourOption>)
+  }
+
+  const handleToleranceSelectorChange = (
+    newValue: SingleValue<ColourOption> | MultiValue<ColourOption>
+  ) => {
+    setSelectedTolerance(newValue as SingleValue<ColourOption>)
+  }
+
   return (
     <div>
       <h1>Resistor Calculator</h1>
@@ -64,20 +88,16 @@ export default function Calculator() {
         options={FIRST_BANDS_OPTIONS}
         label="1st band of color"
         placeholder="Select band A Color"
-        onChange={(newValue) => {
-          setSelectedBandA(newValue as SingleValue<ColourOption>)
-        }}
+        onChange={handleBandASelectorChange}
       />
       <BandSelector
         options={FIRST_BANDS_OPTIONS}
         label="2nd band of color"
         placeholder="Select band B Color"
-        onChange={(newValue) => {
-          setSelectedBandB(newValue as SingleValue<ColourOption>)
-        }}
+        onChange={handleBandBSelectorChange}
       />
-      <MultiplierSelector onChange={setSelectedMultiplier} />
-      <ToleranceSelector onChange={setSelectedTolerance} />
+      <MultiplierSelector onChange={handleMultiplierSelectorChange} />
+      <ToleranceSelector onChange={handleToleranceSelectorChange} />
       <div className="card">
         <CalculateButton
           label="Calculate Resistance"
@@ -85,7 +105,7 @@ export default function Calculator() {
         />
         <ResultContainer
           resistance={resistance}
-          tolerance={selectedTolerance}
+          tolerance={selectedTolerance?.value}
         />
       </div>
     </div>
