@@ -1,14 +1,19 @@
-import { Dispatch, SetStateAction, useMemo } from 'react'
+import { useMemo } from 'react'
+import { ActionMeta, MultiValue, SingleValue } from 'react-select'
 
 import { mapMultiplierOptions } from '../../helpers'
-import { MultiplierOrToleranceOption } from '../../types'
-
 import { useGetMultipliers } from '../../hooks/useGetMultipliers'
+import { ColourOption } from '../../types'
 
 import BandSelector from '../BandSelector'
 
 type MultiplierSelectorProps = {
-  onChange: Dispatch<SetStateAction<MultiplierOrToleranceOption | null>>
+  onChange:
+    | ((
+        newValue: SingleValue<ColourOption> | MultiValue<ColourOption>,
+        actionMeta: ActionMeta<ColourOption>
+      ) => void)
+    | undefined
 }
 
 export const MultiplierSelector = ({ onChange }: MultiplierSelectorProps) => {
@@ -19,7 +24,7 @@ export const MultiplierSelector = ({ onChange }: MultiplierSelectorProps) => {
   } = useGetMultipliers()
 
   const multiplierOptions = useMemo(
-    () => (multipliers ? mapMultiplierOptions(multipliers) : []),
+    () => (multipliers.length > 0 ? mapMultiplierOptions(multipliers) : []),
     [multipliers]
   )
 
