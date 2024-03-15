@@ -9,7 +9,7 @@ import {
 } from '../constants/api'
 
 export const useGetTolerances = () => {
-  const [tolerances, setTolerances] = useState<Tolerance[] | null>(null)
+  const [tolerances, setTolerances] = useState<Tolerance[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [error, setError] = useState<boolean>(false)
 
