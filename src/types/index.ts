@@ -1,9 +1,11 @@
 export type Multiplier = {
+  id: number
   color: string
   multiplier: number
 }
 
 export type Tolerance = {
+  id: number
   color: string
   tolerance: string
 }
