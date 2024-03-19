@@ -1,0 +1,26 @@
+.calculateButton {
+  background-color: #025bba;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.calculateButton:hover {
+  background-color: #024c9b;
+  transform: scale(1.01);
+}
+
+.calculateButton:active {
+  background-color: #004089;
+  transform: scale(1);
+}
+
+.calculateButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 5);
+}
