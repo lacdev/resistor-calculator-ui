@@ -1,3 +1,7 @@
+import clsx from 'clsx'
+
+import styles from './ResultContainer.module.scss'
+
 type ResultContainerProps = {
   resistance: number | null
   tolerance?: string | null
@@ -8,11 +12,13 @@ export const ResultContainer = ({
   tolerance,
 }: ResultContainerProps) => {
   return (
-    <div className="result-container">
+    <div className={clsx(styles.resultContainer)}>
       {resistance && tolerance ? (
         <>
-          <span className="result-label">Resistor Value: </span>
-          <span className="result">{`${resistance} Ω ${tolerance}`}</span>
+          <span className={styles.resultLabel}>Resistor Value: </span>
+          <span
+            className={styles.result}
+          >{`${resistance} Ω ${tolerance}`}</span>
         </>
       ) : null}
     </div>

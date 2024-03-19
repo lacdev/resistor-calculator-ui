@@ -5,8 +5,11 @@ import Select, {
   StylesConfig,
 } from 'react-select'
 import chroma from 'chroma-js'
+import clsx from 'clsx'
 
 import { ColourOption } from '../../types'
+
+import styles from './BandSelector.module.scss'
 
 type BandSelectorProps = {
   label: string
@@ -80,7 +83,7 @@ const BandSelector = (props: BandSelectorProps) => {
   }
 
   return (
-    <div className="select-option-container">
+    <div className={clsx(styles.selectOptionContainer)}>
       {label && <label>{label}</label>}
       <Select
         options={options}
