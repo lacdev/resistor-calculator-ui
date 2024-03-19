@@ -8,8 +8,8 @@ describe('Dropdown map options helpers', () => {
   describe('mapMultiplierOptions', () => {
     it('should correctly map multipliers to dropdown options', () => {
       const multipliers: Multiplier[] = [
-        { color: 'black', multiplier: 1 },
-        { color: 'brown', multiplier: 10 },
+        { id: 1, color: 'black', multiplier: 1 },
+        { id: 2, color: 'brown', multiplier: 10 },
       ]
 
       const expected = [
@@ -31,8 +31,8 @@ describe('Dropdown map options helpers', () => {
     describe('malToleranceOptions', () => {
       it('should correctly map tolerances to dropdown options', () => {
         const tolerances: Tolerance[] = [
-          { color: 'black', tolerance: '+1%' },
-          { color: 'brown', tolerance: '+2%' },
+          { id: 1, color: 'black', tolerance: '+1%' },
+          { id: 2, color: 'brown', tolerance: '+2%' },
         ]
 
         const expected = [
